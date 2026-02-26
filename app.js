@@ -1,21 +1,45 @@
 const app = document.getElementById("app");
 
-/* MENU DATA */
+/* ================= HERO IMAGES ================= */
+const heroImages = [
+  "images/bansuri1.jpg",
+  "images/bansuri2.jpg",
+  "images/bansuri3.jpg",
+  "images/bansuri4.jpg",
+  "images/bansuri5.jpg",
+  "images/bansuri6.jpg"
+];
+
+let heroIndex = 0;
+
+/* ================= MENU DATA ================= */
+
+/* Prepared Everyday */
 const dailyMenu = [
+  { name: "Special Menu", img: "images/bansuri8.jpg" },
   { name: "Barfi", img: "images/bansuri2.jpg" },
   { name: "Kaju Katli", img: "images/bansuri3.jpg" },
   { name: "Jalebi", img: "images/bansuri5.jpg" },
   { name: "Gulab Jamun", img: "images/bansuri6.jpg" },
-  { name: "Pani Puri", img: "images/bansuri7.jpg" }
+  { name: "Pani Puri", img: "images/bansuri7.jpg" },
+  { name: "Lot Cham Cham, Special bangali sweets", img: "images/bansuri10.jpg" },
+  { name: "Special Laddu, Special bangali sweets", img: "images/bansuri11.jpg" }, 
+{ name: "Haldirams", img: "images/bansuri12.jpg" },
+{ name: "56 bhog prasad", img: "images/bansuri13.jpg" },
+{ name: "Hot kesar jalebi", img: "images/bansuri14.jpg" },
+
+
 ];
 
+/* Weekly / Special */
 const weeklyMenu = [
   { name: "Puri (Sunday Special)", img: "images/bansuri4.jpg" },
   { name: "Kolkata Special Breakfast", img: "images/bansuri9.jpg" },
-  { name: "Special Menu", img: "images/bansuri8.jpg" }
+  
 ];
 
-/* Sections */
+/* ================= SECTIONS ================= */
+
 function home() {
   return `
     <section id="home" class="hero">
@@ -28,29 +52,13 @@ function home() {
   `;
 }
 
-function videoSection() {
-  return `
-    <section id="video" class="section video-section">
-      <h2>Watch Our Special Preparation</h2>
-      <p style="color:#666;margin-bottom:25px">
-        Freshly prepared sweets & snacks at Bansuri Sweets
-      </p>
-
-      <a 
-        href="https://www.youtube.com/shorts/d7v4q9mbwiM" 
-        target="_blank" 
-        class="video-link-btn"
-      >
-        ▶ Watch Video on YouTube
-      </a>
-    </section>
-  `;
-}
-
 function menuSection() {
   return `
     <section id="menu" class="section">
       <h2>Our Sweets</h2>
+      <p style="color:#666;margin-bottom:15px">
+        Some items are freshly prepared daily, others on special days
+      </p>
 
       <div class="menu-tabs">
         <button class="tab active" onclick="showDaily()">Prepared Everyday</button>
@@ -87,19 +95,30 @@ function contactSection() {
   `;
 }
 
-/* Render */
+/* ================= RENDER ================= */
+
 app.innerHTML =
   home() +
-  videoSection() +
   menuSection() +
   gallerySection() +
   contactSection();
 
-/* Helpers */
+/* ================= HERO SLIDER ================= */
+
+const hero = document.querySelector(".hero");
+hero.style.backgroundImage = `url('${heroImages[0]}')`;
+
+setInterval(() => {
+  heroIndex = (heroIndex + 1) % heroImages.length;
+  hero.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
+}, 4000);
+
+/* ================= MENU HELPERS ================= */
+
 function renderMenu(list) {
   return list.map(item => `
-    <div class="card">
-      <img src="${item.img}">
+    <div class="card show">
+      <img src="${item.img}" alt="${item.name}">
       <div class="card-content">
         <h3>${item.name}</h3>
         <p>Fresh & Quality Guaranteed</p>
@@ -119,6 +138,20 @@ function showWeekly() {
 }
 
 function setActiveTab(index) {
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-  document.querySelectorAll(".tab")[index].classList.add("active");
+  const tabs = document.querySelectorAll(".tab");
+  tabs.forEach(t => t.classList.remove("active"));
+  tabs[index].classList.add("active");
 }
+
+/* ================= SCROLL ANIMATION ================= */
+
+const cardsObserver = () => {
+  document.querySelectorAll(".card").forEach(card => {
+    if (card.getBoundingClientRect().top < window.innerHeight - 100) {
+      card.classList.add("show");
+    }
+  });
+};
+
+window.addEventListener("scroll", cardsObserver);
+cardsObserver();
