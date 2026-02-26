@@ -29,7 +29,7 @@ function home() {
   return `
     <section id="home" class="hero">
       <div class="hero-content">
-        <h1>Bhansuri Sweets</h1>
+        <h1>Bansuri Sweets</h1>
         <p>Authentic Indian Sweets in Vijayanagar, Bangalore</p>
         <a href="#menu" class="btn">View Sweets</a>
       </div>
