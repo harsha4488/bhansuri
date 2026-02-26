@@ -14,6 +14,7 @@ body {
 .navbar {
   position: sticky;
   top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,12 +125,59 @@ body {
   color: #d84315;
 }
 
+/* Sunday Special */
+.sunday-special {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+}
+
+.special-card {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.special-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.special-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.special-overlay h2 {
+  font-size: 36px;
+  color: #ffd54f;
+}
+
+.special-overlay p {
+  font-size: 22px;
+}
+
+.special-overlay span {
+  margin-top: 10px;
+  background: #ff6f00;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
 /* Gallery */
 .gallery {
   display: flex;
   justify-content: center;
   gap: 25px;
-  margin-top: 30px;
 }
 
 .gallery img {
@@ -155,5 +203,8 @@ footer {
   }
   .gallery {
     flex-direction: column;
+  }
+  .special-card img {
+    height: 260px;
   }
 }
