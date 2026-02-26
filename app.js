@@ -16,7 +16,6 @@ let heroIndex = 0;
 
 /* Prepared Everyday */
 const dailyMenu = [
-  const dailyMenu = [
   { name: "Special Menu", img: "images/bansuri8.jpg" },
   { name: "Barfi", img: "images/bansuri2.jpg" },
   { name: "Kaju Katli", img: "images/bansuri3.jpg" },
@@ -25,9 +24,10 @@ const dailyMenu = [
   { name: "Pani Puri", img: "images/bansuri7.jpg" },
   { name: "Lot Cham Cham, Special bangali sweets", img: "images/bansuri10.jpg" },
   { name: "Special Laddu, Special bangali sweets", img: "images/bansuri11.jpg" }, 
-  { name: "Haldirams", img: "images/bansuri12.jpg" },
-  { name: "56 bhog prasad", img: "images/bansuri13.jpg" },
-  { name: "Hot kesar jalebi", img: "images/bansuri14.jpg" },
+{ name: "Haldirams", img: "images/bansuri12.jpg" },
+{ name: "56 bhog prasad", img: "images/bansuri13.jpg" },
+{ name: "Hot kesar jalebi", img: "images/bansuri14.jpg" },
+
 
 ];
 
