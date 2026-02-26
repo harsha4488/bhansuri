@@ -27,7 +27,7 @@ const dailyMenu = [
   { name: "Special Laddu, Special bangali sweets", img: "images/bansuri11.jpg" }, 
   { name: "Haldirams", img: "images/bansuri12.jpg" },
   { name: "56 bhog prasad", img: "images/bansuri13.jpg" },
-  { name: "Hot kesar jalebi", img: "images/bansuri14.jpg" }
+  { name: "Hot kesar jalebi", img: "images/bansuri14.jpg" },
 
 ];
 
